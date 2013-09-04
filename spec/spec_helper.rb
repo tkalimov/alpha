@@ -49,6 +49,7 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  config.include Rails.application.routes.url_helpers
   config.include Capybara::DSL
 end
 end
