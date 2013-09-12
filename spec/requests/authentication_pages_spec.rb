@@ -62,7 +62,7 @@ describe "Authentication" do
           it "should render the desired protected page" do
             expect(page).to have_title('Edit user')
           end
-        end
+        end 
       end
 
       describe "in the Users controller" do
@@ -112,6 +112,7 @@ describe "Authentication" do
         before { delete user_path(user) }
         specify { expect(response).to redirect_to(root_path) }
       end
+      
     end
   end
 end

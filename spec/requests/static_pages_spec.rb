@@ -7,6 +7,19 @@ describe "Static pages" do
   shared_examples_for "all static pages" do
     it { should have_selector('h1', text: heading) }
     it { should have_title(full_title(page_title)) }
+
+    describe "should not show user nav links when signed out" do 
+      let(:user) { FactoryGirl.create(:user) }
+      before do 
+        sign_in user
+        click_link "Sign out"
+      end   
+    
+      it { should have_link('Sign in') }
+      it { should_not have_link('Settings')}
+      it { should_not have_link('Profile')}
+      it { should_not have_link('Sign out')}      
+    end        
   end 
 
   describe "Home page" do
@@ -49,5 +62,5 @@ describe "Static pages" do
     expect(page).to have_title(full_title('Sign up'))
     click_link "sample app"
     expect(page).to_not have_title('| Home')
-end 
+  end 
 end 
