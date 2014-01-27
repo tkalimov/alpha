@@ -1,11 +1,17 @@
 <li id="<%= feed_item.id %>">
-  <%= link_to image_tag(feed_item.user.avatar.url(:thumb)), feed_item.user %>
+  <%= link_to image_tag(feed_item.user.avatar.url(:thumb), class: "feed-thumb"), feed_item.user %>
     <span class="user">
       <%= link_to feed_item.user.name, feed_item.user %>
     </span>
-    <span class="content"><%= feed_item.content %></span>
-    <% if feed_item.posted_image.url != nil %>
-    <span> <%= image_tag feed_item.posted_image.url(:medium) %> </span>
+    <div class="row">
+      <div class="content lead span6"><%= feed_item.content %></div>
+    </div>
+    <% unless feed_item.posted_image_file_name.nil? %>
+      <div class="row"> 
+          <div class="span4">
+            <%= image_tag feed_item.posted_image.url, class: "feed-image" %> \
+          </div>
+      </div>
     <% end %>
     <span class="timestamp">
       Posted <%= time_ago_in_words(feed_item.created_at) %> ago.

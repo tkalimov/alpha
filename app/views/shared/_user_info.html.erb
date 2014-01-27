@@ -1,10 +1,21 @@
-<%= link_to image_tag(current_user.avatar.url(:medium)), current_user %>
-<h1>
-  <%= current_user.name %>
-</h1>
-<span>
-  <%= link_to "view my profile", current_user %>
-</span>
-<span>
-  <%= pluralize(current_user.microposts.count, "micropost") %>
+	<div class="row">
+		<div class="span1">
+			<%= link_to image_tag(current_user.avatar.url(:thumb), class: "thumb"), current_user %>
+		</div> 
+		<div class="span2">
+			<h3 class="text-left">
+		  		<%= current_user.name %>
+			</h3>
+		</div>
+	</div>
+	<div class="row">
+	  	<div class="span2">
+	  		<%= link_to "view my profile", current_user %>
+		</div>
+		<div class="span2">
+			 <%= pluralize(current_user.microposts.count, "micropost") %>
+		</div>
+	</div>
+
+	 
 </span>
