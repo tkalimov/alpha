@@ -4,7 +4,9 @@
       <%= link_to feed_item.user.name, feed_item.user %>
     </span>
     <span class="content"><%= feed_item.content %></span>
+    <% if feed_item.posted_image.url != nil %>
     <span> <%= image_tag feed_item.posted_image.url(:medium) %> </span>
+    <% end %>
     <span class="timestamp">
       Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
     </span>
