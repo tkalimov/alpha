@@ -1,21 +1,23 @@
 <% if signed_in? %>
-  <div class="row">
-    <div class="col-lg-6">
-      <section>
-        <%= render 'shared/user_info' %>
-      </section>
+    
+    <section>
+      <%#= render 'shared/user_info' %>
+    </section>
+
       <section>
         <%#= render 'shared/stats' %>
       </section>
       <section>
-        <%= render 'shared/micropost_form' %>
+        <%#= render 'shared/micropost_form' %>
       </section>
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Location: Williamsburg</h2>
+      </div>
     </div>
-    <div class="col-lg-8">
-      <h2>Your location: Williamsburg</h2>
+    <div class="col-xs-12">  
       <%= render 'shared/feed' %>
     </div>
-  </div>
 <% else %>
   <div class="center hero-unit">
     <h1>Welcome to the TBD Ventures Alpha site</h1>
