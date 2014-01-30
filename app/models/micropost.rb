@@ -3,7 +3,7 @@ class Micropost < ActiveRecord::Base
   default_scope -> { order('created_at DESC') }
   validates :user_id, presence: true
   validates :content, presence: true, length: { maximum: 400 }
-  attr_accessible :content, :posted_image
+  # attr_accessible :content, :posted_image
   has_attached_file :posted_image, :styles => { :medium => "300x300>", :thumb => "60x60>" }
 
   def self.from_users_followed_by(user)
