@@ -4,11 +4,11 @@
       <%= link_to feed_item.user.name, feed_item.user %>
     </div>
     <div class="row">
-      <div class="content lead col-xs-2"><%= feed_item.content %></div>
+      <div class="content lead col-xs-12"><%= feed_item.content %></div>
     </div>
     <% unless feed_item.posted_image_file_name.nil? %>
       <div class="row"> 
-          <div class="col-xs-2">
+          <div class="col-xs-12">
             <%= image_tag feed_item.posted_image.url, class: "feed-image" %>
           </div>
       </div>
