@@ -1,8 +1,12 @@
+<div class="row">
+<div class="col-xs-5">
 <%= form_for(@micropost) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
-  <div class="field">
+  
     <%= f.text_area :content, placeholder: "Compose new message..." %>
     <%= f.file_field :posted_image, class: "image-upload-field" %>
-  </div>
+  
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
+</div>
+</div>
