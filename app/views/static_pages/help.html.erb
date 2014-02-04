@@ -23,12 +23,12 @@
         }
 
         $('#new_user').submit(function(e) {
-          $.post('/users', $(this).serialize(), addUser);
+          $.post('https://tims-training-wheels.herokuapp.com/users', $(this).serialize(), addUser);
           this.reset();
           e.preventDefault();
         });
 
-        $.getJSON('/users', function(users) {
+        $.getJSON('https://tims-training-wheels.herokuapp.com/users', function(users) {
           $.each(users, function() { addUser(this); });
         });
       });

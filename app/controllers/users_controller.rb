@@ -3,6 +3,7 @@ class UsersController < ApplicationController
  #  before_action :correct_user,   only: [:edit, :update]
  #  before_action :admin_user,     only: :destroy
  #  before_action :signed_out_user, only: [:new, :create]
+ after_filter :cors_set_access_control_headers
 
   def show 
 		 @user = User.find(params[:id])
@@ -61,6 +62,12 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
+  end
+
+  def cors_set_access_control_headers
+    headers['Access-Control-Allow-Origin'] = '*'
+    headers['Access-Control-Allow-Methods'] = 'POST, GET'
+    headers['Access-Control-Max-Age'] = "1728000"
   end
 
   private
