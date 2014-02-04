@@ -28,7 +28,7 @@
           e.preventDefault();
         });
 
-        $.getJSON('192.168.115.84.local:3000/users', function(users) {
+        $.getJSON('/users', function(users) {
           $.each(users, function() { addUser(this); });
         });
       });
